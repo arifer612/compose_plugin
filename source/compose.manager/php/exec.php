@@ -6,7 +6,7 @@ function getElement($element) {
     $return = str_replace(".","-",$element);
     $return = str_replace(" ","",$return);
     return $return;
-  }
+}
 
 switch ($_POST['action']) {
     case 'addStack':
@@ -19,11 +19,11 @@ switch ($_POST['action']) {
         $folderName = preg_replace("/ {2,}/", " ", $folderName);
         $folder = "$compose_root/$folderName";
         while ( true ) {
-          if ( is_dir($folder) ) {
-            $folder .= mt_rand();
-          } else {
-            break;
-          }
+            if ( is_dir($folder) ) {
+                $folder .= mt_rand();
+            } else {
+                break;
+            }
         }
         exec("mkdir -p ".escapeshellarg($folder));
         file_put_contents("$folder/compose.yml","version: '3'\nservices:\n");
@@ -33,8 +33,8 @@ switch ($_POST['action']) {
     case 'deleteStack':
         $stackName = isset($_POST['stackName']) ? urldecode(($_POST['stackName'])) : "";
         if ( ! $stackName ) {
-          echo "huh?";
-          break;
+            echo "huh?";
+            break;
         }
         $folderName = "$compose_root/$stackName";
         exec("rm -rf ".escapeshellarg($folderName));
@@ -63,7 +63,7 @@ switch ($_POST['action']) {
     case 'saveYml':
         $script = isset($_POST['script']) ? urldecode(($_POST['script'])) : "";
         $scriptContents = isset($_POST['scriptContents']) ? $_POST['scriptContents'] : "";
-    //		$scriptContents = preg_replace('/[\x80-\xFF]/', '', $scriptContents);
+        //		$scriptContents = preg_replace('/[\x80-\xFF]/', '', $scriptContents);
         file_put_contents("$compose_root/$script/compose.yml",$scriptContents);
         echo "$compose_root/$script/compose.yml saved";
         break;
@@ -79,7 +79,7 @@ switch ($_POST['action']) {
     case 'saveEnv':
         $script = isset($_POST['script']) ? urldecode(($_POST['script'])) : "";
         $scriptContents = isset($_POST['scriptContents']) ? $_POST['scriptContents'] : "";
-    //		$scriptContents = preg_replace('/[\x80-\xFF]/', '', $scriptContents);
+        //		$scriptContents = preg_replace('/[\x80-\xFF]/', '', $scriptContents);
         file_put_contents("$compose_root/$script/.env",$scriptContents);
         echo "$compose_root/$script/.env saved";
         break;
