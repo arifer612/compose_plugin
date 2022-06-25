@@ -1,4 +1,5 @@
 Author="dcflachs"
+Maintainer="arifer612"
 Title="Compose"
 Type="php"
 Menu="Docker:2"
