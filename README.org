@@ -6,3 +6,4 @@ to use the official docker compose plugin for your unRAID server, check the
 [[https://github.com/dcflachs/compose_plugin][upstream]] repository for more information.
 
 ** Differences from upstream
+- Remove nested ifs in events directory for clarity
