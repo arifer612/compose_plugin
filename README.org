@@ -1,0 +1,6 @@
+* compose_plugin
+
+This is a development fork of the =compose_plugin= repository ([[https://github.com/dcflachs/compose_plugin][upstream]]). This
+is not part of the official unRAID plugins list and it will not be. If you want
+to use the official docker compose plugin for your unRAID server, check the
+[[https://github.com/dcflachs/compose_plugin][upstream]] repository for more information.
